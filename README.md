@@ -56,9 +56,33 @@ This repository contains a framework for writing code that teaches as it runs â€
 
 Study how professional SDKs organize their code â€” client initialization, error handling, module structure, and documentation patterns.
 
-**What it teaches:** How to structure a library or app so that any developer can open it and find what they need within seconds.
+**What it teaches:** How to structure a professional SDK/library. Look at their folder organization, how they separate concerns, and how they write modular, testable code.
 
-**Why it's epic:** SDKs are the most documented type of code because they must be usable without context. If you structure your repos like an SDK, they'll be instantly professional.
+**Why it's epic:** This is how real companies build production SDKs. Study their structure and apply it to your agent-sdk/ folder.
+
+### 6. [vercel/next.js](https://github.com/vercel/next.js/tree/canary/examples) (the `examples/` folder)
+
+The Next.js `examples/` directory is one of the best collections of reference applications you can study. Each example follows the same structure, naming conventions, and documentation pattern.
+
+**What it teaches:** Hundreds of real-world examples of how to structure Next.js apps. Each example shows best practices for routing, data fetching, and component organization.
+
+**Why it's epic:** You can literally copy-paste their folder structures and patterns into your Floe frontend.
+
+### 7. [MystenLabs/sui](https://github.com/MystenLabs/sui/tree/main/crates) (the `crates/` folder)
+
+The official Sui blockchain implementation by Mysten Labs. The `crates/` directory is a masterclass in modular Rust architecture.
+
+**What it teaches:** How the actual Sui team structures their Rust/Move codebase. Look at how they organize modules, write tests, and document their code.
+
+**Why it's epic:** If you're building on Sui, study how the core team writes code. This is the gold standard for Move development.
+
+### 8. [openzeppelin/openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
+
+The industry standard for secure Solidity smart contracts. Every pattern here has been battle-tested across thousands of deployed contracts.
+
+**What it teaches:** How to write secure, audited, production-grade smart contracts. If your Move code follows the same documentation and testing patterns as OpenZeppelin, it will be audit-ready.
+
+**Why it's epic:** OpenZeppelin is the closest thing to a "standard library" for blockchain development. Their code structure, NatSpec documentation, and test coverage are the benchmark.
 
 ## The Problem
 
