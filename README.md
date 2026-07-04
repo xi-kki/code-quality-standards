@@ -164,9 +164,21 @@ GitHub's own documentation site — open source. This is how one of the most val
 
 A practical guide to writing READMEs that people actually read. Covers the exact structure, tone, and content that makes a README effective.
 
-**What it teaches:** A step-by-step framework for writing READMEs — from project name and description to installation, usage, contributing, and license.
+**What it teaches:** A step-by-step guide to writing READMEs that actually get your project noticed. Covers badges, GIFs, architecture diagrams, and contribution guidelines.
 
-**Why it's epic:** Apply this framework to every repo and your GitHub becomes instantly more impressive.
+**Why it's epic:** This is a meta-repo that teaches you how to make your repo look professional.
+
+---
+
+## 🔍 Part 6: Code Review & Quality Standards
+
+### 18. [google/eng-practices](https://github.com/google/eng-practices)
+
+Google's official engineering practices documentation — the gold standard for how code review should work at scale.
+
+**What it teaches:** How Google does code review — CL structure, reviewer responsibilities, what to look for, and how to write review comments that are constructive, not critical.
+
+**Why it's epic:** If your code follows Google's review standards, it will pass any code review at any company.
 
 ## The Problem
 
