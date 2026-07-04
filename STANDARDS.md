@@ -18,7 +18,8 @@ When writing code, you must:
 3. [Function Documentation (NatSpec Style)](#3-function-documentation-natspec-style)
 4. [Inline Explanations for Complex Logic](#4-inline-explanations-for-complex-logic)
 5. [Auto-Generate Documentation](#5-auto-generate-documentation)
-6. [Example: `complete_escrow`](#example-complete_escrow)
+6. [Self-Review Loop](#6-self-review-loop)
+7. [Example: `complete_escrow`](#example-complete_escrow)
 
 ---
 
@@ -195,9 +196,13 @@ pub fun complete_escrow(
 
 ---
 
-## Self-Review Checklist
+### 6. Self-Review Loop
 
-> **Rule:** If any check fails, rewrite the code before presenting it.
+Before presenting any code, run a structured self-review. This is the final quality gate — it catches what linters and type-checkers cannot: clarity, maintainability, and documentation gaps.
+
+**The rule:** If any check fails, rewrite the code before presenting it. Do not pass broken or unclear code to the next stage.
+
+## Self-Review Checklist
 
 After writing code, review it against these criteria:
 
