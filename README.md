@@ -36,15 +36,29 @@ A concise guide to naming variables, functions, classes, and files in any langua
 
 Study how the best-documented frameworks explain their APIs. The Next.js docs are a gold standard for technical writing.
 
-**What it teaches:** How to write documentation that developers actually read — concise, example-driven, every section has a clear purpose. The same principles apply to code comments.
+**What it teaches:** How to write documentation that actually helps people. Look at how they structure their API docs, write examples, and explain complex concepts.
 
-**Why it's epic:** If your code comments follow the same structure as the Next.js docs, they'll be clear, scannable, and actually helpful.
+**Why it's epic:** Study how the best teams document their code, then apply those patterns to your own READMEs and inline comments.
 
 A comprehensive set of project guidelines covering Git workflow, project structure, documentation, environment config, and code reviews — everything beyond just writing code.
 
 **What it teaches:** How to structure an entire project—folder organization, naming conventions, README templates, and documentation standards. The difference between a hobby project and a professional codebase.
 
 This repository contains a framework for writing code that teaches as it runs — a quality assurance system that not only checks your code but explains *why* each check exists, *what* it protects against, and *how* to fix it.
+
+> **Why it's epic:** Study how the best teams document their code, then apply those patterns to your own READMEs and inline comments.
+
+---
+
+## 🏗️ Part 2: Project Structure & Architecture
+
+### 5. [bullet-train-co/bullet-train-ruby-client](https://github.com/bullet-train-co/bullet-train-ruby-client) (or any well-structured SDK)
+
+Study how professional SDKs organize their code — client initialization, error handling, module structure, and documentation patterns.
+
+**What it teaches:** How to structure a library or app so that any developer can open it and find what they need within seconds.
+
+**Why it's epic:** SDKs are the most documented type of code because they must be usable without context. If you structure your repos like an SDK, they'll be instantly professional.
 
 ## The Problem
 
