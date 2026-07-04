@@ -21,6 +21,7 @@ When writing code, you must:
 6. [Self-Review Loop](#6-self-review-loop)
 7. [Example: `complete_escrow`](#example-complete_escrow)
 8. [Auto-Generate README Sections](#7-auto-generate-readme-sections)
+9. [Explain This Code Mode](#9-explain-this-code-mode)
 
 ---
 
@@ -308,4 +309,79 @@ After writing a module, automatically generate:
 ///     oracle_address,
 ///     &mut ctx
 /// );
+/// // Fund the escrow
+/// escrow::fund_escrow(&mut escrow, coin);
+/// escrow::submit_proof(&mut escrow, proof, &agent);
+/// ```
+
+This header comment doubles as both code documentation (in-editor) and the seed for an auto-generated README section. A doc generator can strip the `///` prefix and output the result as markdown.
+
+### 2. Architecture Diagram (Mermaid)
+- A state machine diagram showing all states and transitions
+- A data flow diagram showing how funds move between parties
+- Generated from the module's struct definitions and function signatures
+
+------
+
+## Architecture
+
+```mermaid
+graph TD
+    A[User] -->|Creates Escrow| B[Escrow Contract]
+    B -->|Locks Funds| C[Sui Blockchain]
+    D[AI Agent] -->|Submits Proof| B
+    B -->|Verifies Proof| E[Oracle]
+    E -->|Confirms| B
+    B -->|Releases Funds| F[Recipient]
 ```
+
+---
+
+### 9. "Explain This Code" Mode
+
+Add a mode where Pi can take existing code and refactor it to be self-documenting:
+
+---
+
+## Code Refactoring Mode
+
+When asked to "explain" or "document" existing code:
+
+1. **Analyze** the code to understand its purpose
+2. **Rename** variables and functions to be descriptive
+3. **Add comments** explaining complex logic
+4. **Generate documentation** (NatSpec, README sections)
+5. **Create diagrams** showing the flow
+6. **Present** the refactored code with a summary of changes
+
+### Example transformation:
+
+**Before:**
+
+```move
+pub fun x(e: &mut E) {
+    if e.s == 1 && e.f > 0 {
+        e.s = 2;
+        t(e.f, e.r);
+    }
+}
+```
+
+**After:**
+
+```move
+/// # Complete Escrow
+/// Releases funds to the recipient if the escrow is active and funded.
+/// ## State Transition
+/// `Active` → `Completed`
+/// ## Side Effects
+/// - Transfers funds to recipient
+/// - Emits completion event
+///
+pub fun complete_escrow(escrow: &mut Escrow) {
+    if escrow.state == STATE_ACTIVE && escrow.funds.value > 0 {
+        escrow.state = STATE_COMPLETED;
+        transfer::public_transfer(escrow.funds, escrow.recipient);
+        event::emit(EscrowCompleted { escrow_id: escrow.id });
+    }
+}
