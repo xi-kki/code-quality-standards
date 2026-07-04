@@ -192,3 +192,33 @@ pub fun complete_escrow(
 | **3. Function documentation** | Full doc block: Purpose, Arguments, Side Effects, Errors, Security |
 | **4. Inline explanations** | Each guard has a two-line comment: what + why |
 | **5. Auto-generate docs** | Structured format supports doc extraction and README generation |
+
+---
+
+## Self-Review Checklist
+
+After writing code, review it against these criteria:
+
+### Clarity
+- [ ] Can a junior developer understand this without asking questions?
+- [ ] Are variable names descriptive enough that comments aren't needed?
+- [ ] Is the control flow obvious (no deep nesting, clear early returns)?
+- [ ] Are complex algorithms or business logic explained?
+
+### Comments
+- [ ] Do comments explain WHY, not WHAT?
+
+### Structure
+- [ ] Does each function have a single responsibility?
+- [ ] Are side effects documented and obvious?
+- [ ] Is error handling explicit and comprehensive?
+
+### Security
+- [ ] Are all inputs validated?
+- [ ] Are there any unchecked edge cases?
+- [ ] Are error messages informative without leaking secrets?
+
+### Maintainability
+- [ ] Would someone in 6 months understand why decisions were made?
+- [ ] Are there TODO or FIXME items that need addressing?
+- [ ] Is there unnecessary complexity that could be simplified?
