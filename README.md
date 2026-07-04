@@ -80,9 +80,37 @@ The official Sui blockchain implementation by Mysten Labs. The `crates/` directo
 
 The industry standard for secure Solidity smart contracts. Every pattern here has been battle-tested across thousands of deployed contracts.
 
-**What it teaches:** How to write secure, audited, production-grade smart contracts. If your Move code follows the same documentation and testing patterns as OpenZeppelin, it will be audit-ready.
+**What it teaches:** The most audited, battle-tested smart contract library in existence. Look at how they write NatSpec comments, structure their contracts, and handle security.
 
-**Why it's epic:** OpenZeppelin is the closest thing to a "standard library" for blockchain development. Their code structure, NatSpec documentation, and test coverage are the benchmark.
+**Why it's epic:** Every line is commented with `/// @notice` and `/// @dev` explaining exactly what it does. This is how you document Move contracts.
+
+---
+
+## 💎 Part 3: Move-Specific Excellence (For Your Sui Contracts)
+
+### 9. [mystenlabs/sui/tree/main/crates/sui-framework](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework)
+
+The official Sui framework — the standard library for Sui Move development. Contains `coin`, `transfer`, `event`, `clock`, `object`, and all core modules.
+
+**What it teaches:** The official Sui framework contracts. Look at how they document every function with `///` comments, explain invariants, and structure their modules.
+
+**Why it's epic:** This is the literal source code of Sui. If your Move contracts follow their documentation style, you're writing at the level of the Sui core team.
+
+### 10. [suilens/public](https://github.com/suilens/public) (or [Cetus](https://github.com/CetusProtocol), [Scallop](https://github.com/scallop-io), [Navi](https://github.com/naviprotocol) — any top Sui DeFi protocol)
+
+Study how leading Sui DeFi protocols structure their Move contracts — real production code with real users and real audits.
+
+**What it teaches:** How production DeFi protocols on Sui structure their Move code. Look at their event emissions, error handling, and access control patterns.
+
+**Why it's epic:** You'll see how real protocols handle the exact problems you're solving in escrow.move.
+
+### 11. [move-language/move](https://github.com/move-language/move/tree/main/language/documentation)
+
+The official Move language documentation and book. The source of truth for Move's syntax, type system, and best practices.
+
+**What it teaches:** How the language designers themselves document Move. The Move Book is the canonical reference for writing clean, idiomatic Move code.
+
+**Why it's epic:** Before you write any Move code, read the Move Book. It will save you weeks of debugging.
 
 ## The Problem
 
