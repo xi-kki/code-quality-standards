@@ -120,9 +120,25 @@ The official Move language documentation and book. The source of truth for Move'
 
 The most influential React component library of the last 2 years. Not just beautiful components — perfectly structured, documented, and accessible code.
 
-**What it teaches:** How to build a component library that developers love. Every component has clean TypeScript types, thorough documentation, and accessibility built in.
+**What it teaches:** How to build a component library that's accessible, well-documented, and beautifully designed. Look at how they write prop types, handle edge cases, and document their components.
 
-**Why it's epic:** shadcn/ui proved that the best UI code is copy-pasteable, well-documented, and framework-agnostic. Study their patterns for your components.
+**Why it's epic:** You're already using shadcn/ui. Study their source code to see how they write production-grade React components.
+
+### 13. [vercel/commerce](https://github.com/vercel/commerce)
+
+Vercel's official Next.js commerce starter — a production-grade e-commerce frontend built with Next.js, TypeScript, and Tailwind CSS.
+
+**What it teaches:** A complete, production-ready Next.js e-commerce app. Shows you how to structure routes, handle state, write API calls, and organize components.
+
+**Why it's epic:** This is a real, deployed app by Vercel. Copy their patterns for your Floe dashboard.
+
+### 14. [taikoxyz/taiko-mono](https://github.com/taikoxyz/taiko-mono) (or any well-structured monorepo)
+
+Taiko's monorepo is a masterclass in organizing a multi-package TypeScript project with shared configs, consistent tooling, and clean module boundaries.
+
+**What it teaches:** How to structure a monorepo with multiple packages, shared TypeScript configs, and consistent CI/CD.
+
+**Why it's epic:** If you're building anything with multiple packages (app + SDK + contracts), study how Taiko organizes theirs.
 
 ## The Problem
 
