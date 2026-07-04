@@ -20,6 +20,7 @@ When writing code, you must:
 5. [Auto-Generate Documentation](#5-auto-generate-documentation)
 6. [Self-Review Loop](#6-self-review-loop)
 7. [Example: `complete_escrow`](#example-complete_escrow)
+8. [Auto-Generate README Sections](#7-auto-generate-readme-sections)
 
 ---
 
@@ -185,6 +186,21 @@ pub fun complete_escrow(
 }
 ```
 
+### 7. Auto-Generate README Sections
+
+Teach the AI to automatically generate documentation from code structure. The goal is to produce README sections that never go stale because they're derived from the code itself.
+
+**Principles:**
+- Extract function signatures and doc comments into an API reference
+- Generate architecture diagrams from module structure
+- Surface usage examples from test files and doc comments
+- Keep the README in sync with the code — if the code changes, docs should too
+
+**Implementation hint:**
+The QA gate script (`scripts/quality-gate.sh`) can include a `--docs` flag that reads structured doc comments from source files and writes them into `docs/` as markdown. This keeps generated docs separate from hand-written documentation.
+
+---
+
 **Layer map:**
 | Layer | Evidence in function |
 |-------|---------------------|
@@ -252,3 +268,25 @@ After writing code, review it against these criteria:
 - [ ] Are error messages informative without leaking secrets?
 - [ ] Are there any reentrancy or race condition risks?
 - [ ] Are access controls enforced on every privileged function?
+
+---
+
+## Auto-Documentation
+
+After writing a module, automatically generate:
+
+### 1. Module Header
+- A description of what the module does
+
+```move
+/// # Module: escrow
+/// This module implements a trustless escrow system for Sui.
+///
+/// ## Overview
+/// - Escrows lock funds until work is completed or a dispute is resolved
+/// - Funds are trustless: neither party can withdraw unilaterally
+/// - A neutral agent resolves disputes when the two parties disagree
+///
+/// Users can lock funds in an escrow contract with conditions.
+/// An AI agent verifies work completion and releases funds automatically.
+```
