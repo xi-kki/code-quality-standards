@@ -136,9 +136,37 @@ Vercel's official Next.js commerce starter — a production-grade e-commerce fro
 
 Taiko's monorepo is a masterclass in organizing a multi-package TypeScript project with shared configs, consistent tooling, and clean module boundaries.
 
-**What it teaches:** How to structure a monorepo with multiple packages, shared TypeScript configs, and consistent CI/CD.
+**What it teaches:** How to structure a monorepo with multiple packages (contracts, frontend, SDK, docs). Shows you how to use workspaces, share code, and maintain consistency.
 
-**Why it's epic:** If you're building anything with multiple packages (app + SDK + contracts), study how Taiko organizes theirs.
+**Why it's epic:** Your Floe project has multiple folders (move/, frontend/, agent-sdk/). This shows you how to tie them together professionally.
+
+---
+
+## 📝 Part 5: README & Documentation Templates
+
+### 15. [matiassingers/awesome-readme](https://github.com/matiassingers/awesome-readme)
+
+A curated list of awesome READMEs — the best examples of how to write a README that makes people want to use your project.
+
+**What it teaches:** Hundreds of examples of beautiful, informative READMEs. Shows you how to structure your intro, add badges, include screenshots, and write clear setup instructions.
+
+**Why it's epic:** Your README is the first thing recruiters/investors see. This repo shows you how to make it unforgettable.
+
+### 16. [github/docs](https://github.com/github/docs)
+
+GitHub's own documentation site — open source. This is how one of the most valuable tech companies on earth writes and structures its documentation.
+
+**What it teaches:** How GitHub itself writes documentation. Look at their style guide, how they structure their docs, and how they write clear, concise explanations.
+
+**Why it's epic:** If you can write docs as clearly as GitHub, you're in the top 1% of technical communicators.
+
+### 17. [PandaScience/HowToREADME](https://github.com/PandaScience/HowToREADME)
+
+A practical guide to writing READMEs that people actually read. Covers the exact structure, tone, and content that makes a README effective.
+
+**What it teaches:** A step-by-step framework for writing READMEs — from project name and description to installation, usage, contributing, and license.
+
+**Why it's epic:** Apply this framework to every repo and your GitHub becomes instantly more impressive.
 
 ## The Problem
 
