@@ -289,4 +289,23 @@ After writing a module, automatically generate:
 ///
 /// Users can lock funds in an escrow contract with conditions.
 /// An AI agent verifies work completion and releases funds automatically.
+///
+/// ## Key Concepts
+/// - **Escrow**: Funds locked until conditions met
+/// - **Dispute**: Either party can escalate unresolved issues
+/// - **Agent**: Neutral resolver with override authority
+/// - **Escrow Object**: Holds funds and state (Active/Completed/Disputed)
+/// - **Oracle**: Off-chain service that verifies work completion
+/// - **State Machine**: 5-state FSM governing escrow lifecycle
+///
+/// ## Usage Example
+/// ```move
+/// // Create an escrow
+/// let escrow = escrow::create_escrow(
+///     payer,
+///     recipient,
+///     amount,
+///     oracle_address,
+///     &mut ctx
+/// );
 ```
