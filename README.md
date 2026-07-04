@@ -2,6 +2,48 @@
 
 **Self-documenting code as a first-class skill.**
 
+> Here are the GitHub repositories that will transform your code from "it works" to "this is how a senior engineer writes production-grade code." These repos teach you how to structure, document, and explain every line so your GitHub becomes a masterclass in professional development.
+
+---
+
+## 📚 Part 1: Code Documentation & Commenting Standards
+
+### 1. [ryanmcdermott/clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
+
+Applies Robert C. Martin's *Clean Code* principles to JavaScript. Covers naming, functions, comments, error handling, and SOLID — the foundation of self-documenting code.
+
+**What it teaches:** The bible of clean code principles adapted for JavaScript/TypeScript. Shows you exactly how to name variables, write functions, and structure code so it's self-documenting.
+
+**Why it's epic:** 90k+ stars. Every senior dev has read this. If your code follows these principles, reviewers will instantly recognize you as a professional.
+
+**Why it's epic:** Shows you how to set up a repo that looks like it was built by a team of 10 senior engineers, not a solo dev.
+
+### 2. [elsewhencode/project-guidelines](https://github.com/elsewhencode/project-guidelines)
+
+A comprehensive set of project guidelines covering Git workflow, project structure, documentation, environment config, and code reviews — everything beyond just writing code.
+
+**What it teaches:** How to structure an entire project—folder organization, naming conventions, README templates, and documentation standards. The difference between a hobby project and a professional codebase.
+
+### 3. [kettanaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+
+A concise guide to naming variables, functions, classes, and files in any language. The single most underrated skill in programming.
+
+**What it teaches:** The exact rules for naming variables, functions, classes, and files. Covers camelCase vs snake_case, when to use prefixes/suffixes, and how to name things so they're instantly understandable.
+
+**Why it's epic:** Good naming eliminates 80% of the need for comments. This repo teaches you how to write code that explains itself.
+
+### 4. [jrgarciadev/nextjs-docs](https://github.com/jrgarciadev/nextjs-docs) (or any top-tier docs repo)
+
+Study how the best-documented frameworks explain their APIs. The Next.js docs are a gold standard for technical writing.
+
+**What it teaches:** How to write documentation that developers actually read — concise, example-driven, every section has a clear purpose. The same principles apply to code comments.
+
+**Why it's epic:** If your code comments follow the same structure as the Next.js docs, they'll be clear, scannable, and actually helpful.
+
+A comprehensive set of project guidelines covering Git workflow, project structure, documentation, environment config, and code reviews — everything beyond just writing code.
+
+**What it teaches:** How to structure an entire project—folder organization, naming conventions, README templates, and documentation standards. The difference between a hobby project and a professional codebase.
+
 This repository contains a framework for writing code that teaches as it runs — a quality assurance system that not only checks your code but explains *why* each check exists, *what* it protects against, and *how* to fix it.
 
 ## The Problem
@@ -21,6 +63,26 @@ dropped. In a hot loop, this impacts gas costs.
 ```
 
 This repo is the difference between a **tool** and a **mentor**.
+
+## First Impressions: What Recruiters & Senior Devs See
+
+When they open the `xi-kki/code-quality-standards` repo, they'll see:
+
+- **Every function has NatSpec docs** explaining purpose, arguments, returns, errors
+- **Inline comments explain WHY, not WHAT** — trade-offs, edge cases, attack vectors
+- **Clear naming throughout** — `calculateEscrowExpirationTime()` not `calc()`
+- **Consistent structure** — every public function follows the same doc template
+- **A production-grade QA script** with more comments than code
+- **Architecture diagrams** in the README showing the state machine
+- **Architecture diagrams** generated alongside the source
+- **Usage examples** for every public function
+- **Error codes are documented** with explanations of when each one triggers
+- **Security considerations** are called out explicitly
+- **Zero magic numbers** — every constant has a named definition and a rationale
+
+This repo isn't just code — it's a **portfolio piece** that proves you understand that code is read far more often than it's written.
+
+**This is the difference between "this person can code" and "this person writes production-grade, maintainable, professional code."**
 
 ## The 4-Layer Philosophy
 

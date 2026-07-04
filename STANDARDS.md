@@ -7,6 +7,8 @@ description: Self-documenting code as a first-class skill — a 5-layer framewor
 
 > *"The code itself is the documentation."*
 
+> **The Verdict:** Adding self-documenting code as a core skill to Pi is exactly the right move. It scales your ability to produce senior-level code without manual effort, and it makes your GitHub instantly stand out.
+
 When writing code, you must:
 
 ---
@@ -379,6 +381,8 @@ pub fun x(e: &mut E) {
 /// - Emits completion event
 ///
 pub fun complete_escrow(escrow: &mut Escrow) {
+    // Only complete if escrow is active and has funds
+    // This prevents completing empty or disputed escrows
     if escrow.state == STATE_ACTIVE && escrow.funds.value > 0 {
         escrow.state = STATE_COMPLETED;
         transfer::public_transfer(escrow.funds, escrow.recipient);
