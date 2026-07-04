@@ -108,9 +108,21 @@ Study how leading Sui DeFi protocols structure their Move contracts — real pro
 
 The official Move language documentation and book. The source of truth for Move's syntax, type system, and best practices.
 
-**What it teaches:** How the language designers themselves document Move. The Move Book is the canonical reference for writing clean, idiomatic Move code.
+**What it teaches:** The official Move language documentation and tutorials. Shows you the "Move way" of writing code—resource-oriented programming, linear types, and ownership.
 
-**Why it's epic:** Before you write any Move code, read the Move Book. It will save you weeks of debugging.
+**Why it's epic:** Understanding Move's philosophy will make your code not just work, but be idiomatic and elegant.
+
+---
+
+## 🎨 Part 4: Frontend Excellence (For Your React/Next.js UI)
+
+### 12. [shadcn-ui/ui](https://github.com/shadcn-ui/ui)
+
+The most influential React component library of the last 2 years. Not just beautiful components — perfectly structured, documented, and accessible code.
+
+**What it teaches:** How to build a component library that developers love. Every component has clean TypeScript types, thorough documentation, and accessibility built in.
+
+**Why it's epic:** shadcn/ui proved that the best UI code is copy-pasteable, well-documented, and framework-agnostic. Study their patterns for your components.
 
 ## The Problem
 
