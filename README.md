@@ -176,9 +176,39 @@ A practical guide to writing READMEs that people actually read. Covers the exact
 
 Google's official engineering practices documentation — the gold standard for how code review should work at scale.
 
-**What it teaches:** How Google does code review — CL structure, reviewer responsibilities, what to look for, and how to write review comments that are constructive, not critical.
+**What it teaches:** Google's official guide to code review. Shows you what senior engineers look for when reviewing code—naming, comments, tests, and design.
 
-**Why it's epic:** If your code follows Google's review standards, it will pass any code review at any company.
+**Why it's epic:** This is literally how Google engineers are trained to write and review code. If your code passes these standards, you're hiring material at any top tech company.
+
+### 19. Code Review Checklist (search GitHub for "code review checklist")
+
+Many developers have published their personal code review checklists. Find one that covers correctness, security, performance, and style — then make it your own.
+
+A practical, actionable code review checklist you can apply to every PR. Covers correctness, security, performance, and style.
+
+**What it teaches:** A checklist of things to verify before submitting a PR. Covers security, performance, readability, and testing.
+
+**Why it's epic:** Use this checklist before you commit. It's like having a senior dev reviewing your code before you push.
+
+### 20. [trekhleb/javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
+
+The most popular algorithms repo on GitHub. Not for the algorithms themselves — for how they explain complex logic in READMEs.
+
+**What it teaches:** How to explain complex algorithms with crystal-clear comments, diagrams, and step-by-step breakdowns.
+
+**Why it's epic:** Look at how they document each algorithm. Apply that level of detail to your escrow state machine and oracle logic.
+
+---
+
+## 🚀 Part 7: The "Epic GitHub" Toolkit
+
+### 21. [badges/shields](https://github.com/badges/shields)
+
+The badge service that powers most GitHub README badges. Shows your build status, test coverage, license, and more at a glance.
+
+**What it teaches:** How to add badges to your README that immediately communicate your project's health and quality.
+
+**Why it's epic:** Badges are visual trust signals. A repo with well-maintained badges looks professional before anyone reads a single line.
 
 ## The Problem
 
