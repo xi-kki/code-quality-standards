@@ -1,0 +1,184 @@
+# Code Quality Gate — GitHub Actions Workflow
+# ==============================================================================
+# Why this workflow exists:
+#   Local gates (quality-gate.sh) catch issues before they reach CI. This
+#   workflow runs the SAME checks in a hermetic, reproducible environment.
+#   The local script and CI workflow should always agree — if they diverge,
+#   one of them is wrong.
+#
+# Design decisions:
+#   - Runs on every push and PR (prevent regressions)
+#   - Matrix strategy for different tools (parallel execution)
+#   - Caches dependencies between runs (faster feedback)
+#   - Never auto-fixes (CI should detect, not mutate)
+#
+# Why not auto-fix in CI:
+#   Auto-fixing in CI creates orphan commits with formatting changes that
+#   don't belong to any developer. The author should own all changes.
+#   Auto-fix is a local workflow (quality-gate.sh --fix) that runs before push.
+
+name: Quality Gate
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  # ── Lint & Format ────────────────────────────────────────────────────────
+  # Why separate jobs: Each job runs in parallel, giving faster feedback.
+  # Linting and formatting are independent of each other.
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    timeout-minutes: 10  # Fail if stuck (network issues, hung process)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          components: clippy, rustfmt
+
+      - name: Clippy (Rust/Move linting)
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        # --no-deps: only scan our code, not vendored dependencies
+        # Why: Dependency issues are caught by cargo audit, not clippy
+        run: cargo clippy --no-deps -- -D warnings
+
+      - name: Rustfmt (format check)
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        # --check: never auto-format in CI (see design decisions above)
+        run: cargo fmt --all --check
+
+      - name: Setup Node
+        if: ${{ hashFiles('package.json') != '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: ESLint
+        if: ${{ hashFiles('.eslintrc*', 'eslint.config.js') != '' }}
+        run: |
+          npm ci
+          npx eslint . --max-warnings 0
+
+      - name: Prettier
+        if: ${{ hashFiles('.prettierrc*', 'prettier.config.js') != '' }}
+        run: npx prettier --check .
+
+  # ── Type Check ───────────────────────────────────────────────────────────
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      # cargo check is faster than cargo build because it skips codegen
+      # Why this matters: Type-checking is a gate, not a build step.
+      # We don't need compiled artifacts here — just type validation.
+      - name: cargo check
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        run: cargo check
+
+      - name: TypeScript type check
+        if: ${{ hashFiles('tsconfig.json') != '' }}
+        run: |
+          npm ci
+          npx tsc --noEmit
+
+  # ── Tests ────────────────────────────────────────────────────────────────
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          cache: true  # Cargo caching is critical — saves ~5 min per run
+
+      - name: cargo test
+        if: ${{ hashFiles('Cargo.toml') != '' }}
+        run: cargo test
+
+      - name: Setup Node
+        if: ${{ hashFiles('package.json') != '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: JS/TS tests
+        if: ${{ hashFiles('package.json') != '' }}
+        run: |
+          npm ci
+          npx vitest --run || npx jest || npx mocha
+
+  # ── Security Audit ───────────────────────────────────────────────────────
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: cargo audit
+        if: ${{ hashFiles('Cargo.lock') != '' }}
+        # cargo-audit checks dependencies against the RustSec Advisory DB
+        # Why a separate action vs raw cargo: The action has built-in
+        # caching of the advisory database, saving ~30s per run.
+        uses: actions-rust-lang/audit@v1
+
+      - name: npm audit
+        if: ${{ hashFiles('package-lock.json') != '' }}
+        # --audit-level=high: only fail on high or critical CVEs
+        # Low/moderate warnings are informative but not blockers
+        run: npm audit --audit-level=high
+
+  # ── Documentation Health ─────────────────────────────────────────────────
+  docs:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check README
+        run: |
+          if [ ! -f README.md ]; then
+            echo "::error::README.md is missing"
+            exit 1
+          fi
+          echo "✅ README.md exists"
+
+      - name: Check for placeholder text
+        run: |
+          if grep -qi "TODO\|replace this\|example\|sample" README.md; then
+            echo "::warning::README.md may contain placeholder text"
+          fi
