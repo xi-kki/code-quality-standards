@@ -197,6 +197,8 @@ pub fun complete_escrow(
 
 ## Self-Review Checklist
 
+> **Rule:** If any check fails, rewrite the code before presenting it.
+
 After writing code, review it against these criteria:
 
 ### Clarity
@@ -204,14 +206,18 @@ After writing code, review it against these criteria:
 - [ ] Are variable names descriptive enough that comments aren't needed?
 - [ ] Is the control flow obvious (no deep nesting, clear early returns)?
 - [ ] Are complex algorithms or business logic explained?
+- [ ] Is the module's purpose explained in a header comment?
 
 ### Comments
 - [ ] Do comments explain WHY, not WHAT?
+- [ ] Are there any redundant comments that just repeat the code?
+- [ ] Do comments capture trade-offs, not just descriptions?
 
 ### Structure
 - [ ] Does each function have a single responsibility?
 - [ ] Are side effects documented and obvious?
 - [ ] Is error handling explicit and comprehensive?
+- [ ] Are edge cases and error conditions documented?
 
 ### Security
 - [ ] Are all inputs validated?
@@ -222,3 +228,22 @@ After writing code, review it against these criteria:
 - [ ] Would someone in 6 months understand why decisions were made?
 - [ ] Are there TODO or FIXME items that need addressing?
 - [ ] Is there unnecessary complexity that could be simplified?
+- [ ] Is the code modular (functions < 50 lines)?
+- [ ] Are dependencies explicit and justified?
+- [ ] Are there no magic numbers (all constants named)?
+- [ ] Is error handling explicit and documented?
+
+### Documentation
+- [ ] Does every public function have NatSpec-style docs?
+- [ ] Is the README up to date with the module's purpose?
+- [ ] Are usage examples accurate and runnable?
+- [ ] Are there usage examples for complex functions?
+- [ ] Is the module's purpose explained in a header comment?
+- [ ] Are architecture decisions documented (ADRs or inline)?
+
+### Security
+- [ ] Are all inputs validated?
+- [ ] Are there any unchecked edge cases?
+- [ ] Are error messages informative without leaking secrets?
+- [ ] Are there any reentrancy or race condition risks?
+- [ ] Are access controls enforced on every privileged function?
