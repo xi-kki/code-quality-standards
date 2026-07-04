@@ -206,9 +206,25 @@ The most popular algorithms repo on GitHub. Not for the algorithms themselves �
 
 The badge service that powers most GitHub README badges. Shows your build status, test coverage, license, and more at a glance.
 
-**What it teaches:** How to add badges to your README that immediately communicate your project's health and quality.
+**What it teaches:** How to add professional badges to your README (build status, test coverage, license, etc.).
 
-**Why it's epic:** Badges are visual trust signals. A repo with well-maintained badges looks professional before anyone reads a single line.
+**Why it's epic:** Badges make your repo look production-ready at a glance.
+
+### 22. [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid)
+
+The diagramming tool that lives in your markdown. Create flowcharts, sequence diagrams, state machines, and architecture diagrams directly in READMEs.
+
+**What it teaches:** How to write diagrams in Markdown. Create flowcharts, sequence diagrams, and architecture diagrams directly in your README.
+
+**Why it's epic:** A diagram is worth 1000 lines of code. Show your Floe architecture visually.
+
+### 23. [all-contributors/all-contributors](https://github.com/all-contributors/all-contributors)
+
+A specification and tool for recognizing contributors to your open-source projects — beyond just code.
+
+**What it teaches:** How to build a community around your project by recognizing every type of contribution — code, design, docs, ideas, and more.
+
+**Why it's epic:** A contributors section shows you value people, not just code. This is the mark of a mature open-source project.
 
 ## The Problem
 
